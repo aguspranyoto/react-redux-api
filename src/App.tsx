@@ -1,57 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Footer from "./components/Footer";
+import Home from "./components/Home";
+import Navbar from "./components/Navbar";
+
+import UserList from "./components/User/UserList";
+import UserDetail from "./components/User/UserDetail";
+import CreateForm from "./components/User/CreateForm";
+import UpdateForm from "./components/User/UpdateForm";
+
+import UserLayout from "./components/User/UserLayout";
+import GuestLayout from "./components/Guest/GuestLayout";
+import UserForm from "./components/User/UserForm";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <main className="max-w-screen-2xl mx-auto p-6">
+        <Routes>
+          <Route path="/user" element={<UserLayout />}>
+            <Route index element={<UserList />}></Route>
+            <Route path="/user/:id" element={<UserDetail />}></Route>
+            {/* <Route path="/user/create" element={<CreateForm />}></Route> */}
+            {/* <Route path="/user/update/:id" element={<UpdateForm />}></Route> */}
+            <Route
+              path="/user/create"
+              element={<UserForm isEditForm={false} />}
+            ></Route>
+            <Route
+              path="/user/update/:id"
+              element={<UserForm isEditForm={true} />}
+            ></Route>
+          </Route>
+          <Route path="/" element={<GuestLayout />}>
+            <Route index element={<Home />} />
+          </Route>
+        </Routes>
+      </main>
+      <Footer />
+      <ToastContainer />
+    </BrowserRouter>
   );
 }
 

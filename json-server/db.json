@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "name": "Agus updated",
+      "email": "agus@gmail.com",
+      "id": "fe9a"
+    },
+    {
+      "name": "Seto",
+      "email": "seto@gmail.com",
+      "id": "5ea0"
+    },
+    {
+      "id": "1489",
+      "name": "Safira",
+      "email": "safira@gmail.com"
+    },
+    {
+      "name": "mba nuni",
+      "email": "nuni@gmail.com",
+      "id": "015a"
+    },
+    {
+      "id": "52da",
+      "name": "ibu",
+      "email": "ibu@gmail.com"
+    },
+    {
+      "id": "148d",
+      "name": "bapak",
+      "email": "bapak@gmail.com"
+    },
+    {
+      "id": "d66b",
+      "name": "dio",
+      "email": "dio@gmail.com"
+    }
+  ]
+}
